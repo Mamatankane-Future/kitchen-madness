@@ -1,0 +1,27 @@
+.profile{
+    width: 3rem;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    background-color: white;
+}
+
+.profileCard{
+    width: 18rem;
+    padding: 1rem;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+}
+
+.subtitle{
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.text{
+    color: #1e90ff;
+}
