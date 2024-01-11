@@ -6,7 +6,6 @@ import { Element } from './utilities';
 import styles from '../Styles/StaffMember.module.css'
 
 function StaffMember(props){
-const ChildComponent = forwardRef((props, ref) => {
 
     const [showProfile, setShowProfile] = useState(false);
     console.log(props.chefDetails.profile);

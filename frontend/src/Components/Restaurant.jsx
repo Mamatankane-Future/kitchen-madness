@@ -33,10 +33,10 @@ function Restaurant(){
                 <IoMdSettings className={styles.icon} onClick={()=>setShowSettings(true)}/>
                 <SiGooglemessages className={styles.icon} onClick={()=>setShowMessages(true)}/>
             </Container>
-            <StaffMember chefDetails={chefs.headChef} />
+            {/* <StaffMember chefDetails={chefs.headChef} />
             <StaffMember chefDetails={chefs.fryChef}/>
             <StaffMember chefDetails={chefs.meatChef}/>
-            <StaffMember chefDetails={chefs.pastryChef}/>
+            <StaffMember chefDetails={chefs.pastryChef}/> */}
         </Container>  
     )
 }

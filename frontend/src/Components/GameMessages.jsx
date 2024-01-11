@@ -1,15 +1,14 @@
 import Modal from 'react-bootstrap/Modal';
 import Alert from 'react-bootstrap/Alert';
 import { RiCheckDoubleLine } from "react-icons/ri";
-import globals from '../Styles/global.module.css';
-import styles from '../Styles/GameMessages.module.css';
 import { useState } from 'react';
+import styles from '../Styles/GameMessages.module.css'
 
 function Message(props) {
     return (
-      <Alert variant='light' className={globals.spaceBetween}>
+      <Alert variant='light' className="p-2">
+            <RiCheckDoubleLine className={`icon ${styles.icon}`}/>
            {props.message}
-           <RiCheckDoubleLine className={`${globals.icon} ${styles.icon}`}/>
       </Alert>
     );
 }

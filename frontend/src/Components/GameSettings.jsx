@@ -7,8 +7,6 @@ import { GiSoundOn } from "react-icons/gi";
 import { VscUnmute } from "react-icons/vsc";
 import { IoVolumeMuteOutline } from "react-icons/io5";
 
-import globals from "../Styles/global.module.css";
-
 
 function GameSettings(props){
 
@@ -27,8 +25,8 @@ function GameSettings(props){
             <Modal.Body>
                 <Form>
                     <Form.Group>
-                        <Form.Group className={globals.spaceBetween}>
-                            <Form.Label>Music {music===0 ? <GiSoundOff className={globals.icon}/> : <GiSoundOn className={globals.icon}/>}</Form.Label>
+                        <Form.Group className="d-flex justify-content-between">
+                            <Form.Label>Music {music===0 ? <GiSoundOff className="icon"/> : <GiSoundOn className="icon"/>}</Form.Label>
                             <Form.Label>{music}%</Form.Label>
                         </Form.Group>
                         <Form.Range 
@@ -38,8 +36,8 @@ function GameSettings(props){
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Group className={globals.spaceBetween}>
-                            <Form.Label>Sound {sound===0 ? <IoVolumeMuteOutline className={globals.icon}/> : <VscUnmute className={globals.icon}/>}</Form.Label>
+                        <Form.Group className="d-flex justify-content-between">
+                            <Form.Label>Sound {sound===0 ? <IoVolumeMuteOutline className="icon"/> : <VscUnmute className="icon"/>}</Form.Label>
                             <Form.Label>{sound}%</Form.Label>
                         </Form.Group>
                         <Form.Range 
@@ -47,6 +45,9 @@ function GameSettings(props){
                         max={100}
                         onChange={(event) => setSound(parseInt(event.target.value, 10))}
                         />
+                    </Form.Group>
+                    <Form.Group>
+
                     </Form.Group>
                 </Form>
             </Modal.Body>
