@@ -1,0 +1,13 @@
+.icon{
+    font-size: 3rem;
+    color: #fafafa;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.iconContainer{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+}
