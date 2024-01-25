@@ -10,78 +10,52 @@ const svgStyle = {
 }
 
 function Area(props){
+  console.log(props);
     return (
-        <svg style={`${svgStyle} ${props.svg.style}`}>
-            {props.svg.shapes.map((shape,index) => {
-                switch (shape.type) {
-                    case 'Table':
-                      return (
-                        <Table
-                          key={index}
-                          x={shape.x}
-                          y={shape.y}
-                          width={shape.width}
-                          height={shape.height}
-                          opacity={shape.opacity}
-                        />
-                      );
-                    case 'Door':
-                      return (
-                        <Door
-                          key={index}
-                          x={shape.x}
-                          y={shape.y}
-                          width={shape.width}
-                          height={shape.height}
-                          opacity={shape.opacity}
-                        />
-                      );
-                    case 'StaffArea':
-                      return (
-                        <StaffArea
-                          key={index}
-                          x={shape.x}
-                          y={shape.y}
-                          width={shape.width}
-                          height={shape.height}
-                          opacity={shape.opacity}
-                        />
-                      );
-                    case 'Storeroom':
-                      return (
-                        <Storeroom
-                          key={index}
-                          x={shape.x}
-                          y={shape.y}
-                          width={shape.width}
-                          height={shape.height}
-                          opacity={shape.opacity}
-                        />
-                      );
-                    case 'Kitchen':
-                      return (
-                        <Kitchen
-                          key={index}
-                          points={shape.points}
-                          opacity={shape.opacity}
-                        />
-                      );
-                    case 'Bathroom':
-                      return (
-                        <Bathroom
-                          key={index}
-                          x={shape.x}
-                          y={shape.y}
-                          width={shape.width}
-                          height={shape.height}
-                          opacity={shape.opacity}
-                        />
-                      );
-                    default:
-                      return null;
-                }
-            })}
-        </svg>
+      <svg style={{ ...svgStyle, ...props.svg.style }}>
+          {props.svg.shapes.map((shape,index) => {
+              switch (shape.type) {
+                  case 'Table':
+                    return (
+                      <Table
+                        key={index} {...shape}
+                      />
+                    );
+                  case 'Door':
+                    return (
+                      <Door
+                        key={index} {...shape}
+                      />
+                    );
+                  case 'StaffArea':
+                    return (
+                      <StaffArea
+                        key={index} {...shape}
+                      />
+                    );
+                  case 'Storeroom':
+                    return (
+                      <Storeroom
+                        key={index} {...shape}
+                      />
+                    );
+                  case 'Kitchen':
+                    return (
+                      <Kitchen
+                        key={index} {...shape}
+                      />
+                    );
+                  case 'Bathroom':
+                    return (
+                      <Bathroom
+                        key={index} {...shape}
+                      />
+                    );
+                  default:
+                    return null;
+              }
+          })}
+      </svg>
     )
 }
 

@@ -1,4 +1,3 @@
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Popover from 'react-bootstrap/Popover'
 import Button from 'react-bootstrap/Button'
 import Shape from './Shape'
@@ -13,7 +12,7 @@ function Door(props){
     const doorPopover = (
         <Popover>
             <Popover.Body className='d-flex flex-column'>
-                {doorOptions.map((el,index)=> <Button className="mb-1" variant="outline-dark" onClick={() => handleDoorState(index)}>{el}</Button>)}
+                {doorOptions.map((el,index)=> <Button key={index} className="mb-1" variant="outline-dark" onClick={() => handleDoorState(index)}>{el}</Button>)}
             </Popover.Body>
         </Popover>
     );
@@ -23,9 +22,7 @@ function Door(props){
     }
 
     return (
-        <OverlayTrigger trigger="click" placement="right" overlay={doorPopover}>
-            <Shape {...props} />
-        </OverlayTrigger>
+        <Shape {...props} popover={doorPopover}/>
     )
 }
 

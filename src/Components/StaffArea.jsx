@@ -14,7 +14,7 @@ function StaffArea(props) {
     const staffareaPopover = (
         <Popover id={`staffarea-popover`}>
             <Popover.Body className='d-flex flex-column'>
-                {staffareaOptions.map((el,index)=> <Button className="mb-1" variant="outline-dark" onClick={() => handleStaffareaState(index)}>{el}</Button>)}
+                {staffareaOptions.map((el,index)=> <Button key={index} className="mb-1" variant="outline-dark" onClick={() => handleStaffareaState(index)}>{el}</Button>)}
             </Popover.Body>
         </Popover>
     );

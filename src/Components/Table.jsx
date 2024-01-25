@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { randomNumber } from '../Utils/util'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Popover from 'react-bootstrap/Popover'
 import Button from 'react-bootstrap/Button'
 import Shape from './Shape'
@@ -15,12 +14,12 @@ function Table(props){
         "Take Bill",
         "Clean Table"
     ];
-    const tableStates = [useState(0), useState(0), useState(0),useState(0), useState(0), useState(0), useState(0)];
-    const tableTimeouts = [useState(0), useState(0), useState(0),useState(0), useState(0), useState(0), useState(0)];
+    const [tableState, setTablestate]= useState(0);
+    const [tableTimeout, setTabletimeout] = useState(0)
 
-    function handleTableState(index){
+    function handleTableState(){
         let timeout = null;
-        switch (tableStates[index][0]){
+        switch (tableState){
             case 0: 
                 timeout = randomNumber(10, 15);
                 break;
@@ -45,36 +44,32 @@ function Table(props){
             default: break;
         }
         if (!timeout) return;
-        tableTimeouts[index][1](setTimeout(()=>{
-            if (tableStates[index][0] === 1 || tableStates[index][0] ===4){
+        setTabletimeout(setTimeout(()=>{
+            if (tableState === 1 || tableState ===4){
                 if (randomNumber(0,1)) {
-                    tableStates[index][1](++tableStates[index][0]%tableOptions.length);
+                    setTablestate((tableState+1)%tableOptions.length);
                 }
             }
             else {
-                tableStates[index][1](++tableStates[index][0]%tableOptions.length);
+                setTablestate((tableState+1)%tableOptions.length);
             }
-            clearTimeout(tableTimeouts[index][0]);
-            tableTimeouts[index][1](0);
+            clearTimeout(tableTimeout);
+            setTabletimeout(0);
         }, timeout*1000));
     }
     
 
-
-
-    let tablePopover = tableStates.map((el,index) =>
-    (
+    let tablePopover = (
         <Popover>
             <Popover.Body>
-                <Button variant="outline-dark" onClick={() => handleTableState(index)} className={tableTimeouts[index][0] !== 0 ? 'disabled' : ''}>{tableOptions[tableStates[index][0]]}</Button>
+                <Button variant="outline-dark" onClick={() => handleTableState()} className={tableTimeout !== 0 ? 'disabled' : ''}>{tableOptions[tableState]}</Button>
             </Popover.Body>
         </Popover>
-    ));
+    );
 
+    
     return (
-        <OverlayTrigger trigger="click" placement="right" overlay={tablePopover}>
-            <Shape {...props} />
-        </OverlayTrigger>
+        <Shape {...props} popover={tablePopover}/>
     )
 
 }

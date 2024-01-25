@@ -1,4 +1,3 @@
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Popover from 'react-bootstrap/Popover'
 import Button from 'react-bootstrap/Button'
 import Shape from './Shape'
@@ -14,7 +13,7 @@ function Kitchen(props){
     const kitchenPopover = (
         <Popover id={`kitchen-popover`}>
             <Popover.Body className='d-flex flex-column'>
-                {kitchenOptions.map((el,index)=> <Button className="mb-1" variant="outline-dark" onClick={() => handleKitchenState(index)}>{el}</Button>)}
+                {kitchenOptions.map((el,index)=> <Button className="mb-1" variant="outline-dark" onClick={() => handleKitchenState(index)} key={index}>{el}</Button>)}
             </Popover.Body>
         </Popover>
     );
@@ -24,9 +23,7 @@ function Kitchen(props){
     }
 
     return (
-        <OverlayTrigger trigger="click" placement="right" overlay={kitchenPopover}>
-            <Shape {...props} />
-        </OverlayTrigger>
+        <Shape {...props} popover={kitchenPopover}/>
     )
 }
 
