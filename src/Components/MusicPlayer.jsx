@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import song from '../Assets/music/song.mp4'
 
 const MusicPlayer = ({ volume, playOrPause }) => {
-  console.log("hello");
   const audioRef = useRef(null);
 
   useEffect(() => {

@@ -1,9 +1,9 @@
 import { Group1 } from "./Staff";
-import { Area1 } from "./Areas";
+import { Svg1 } from "./SVGs";
 
 
 
 export const restaurantAssets1 = {
     group: Group1,
-    area: Area1,
+    svg: Svg1,
 } 

@@ -21,7 +21,7 @@ function GameMessages(props){
                 <Modal.Title>Messages</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {messages.map( message => <Message message={message}/>)}
+                {messages.map( (message,index) => <Message key={index} message={message}/>)}
             </Modal.Body>
         </Modal>
     )
